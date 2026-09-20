@@ -1,0 +1,34 @@
+name: "Exportar Godot a iOS"
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  export-ios:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Exportar proyecto con Godot 4
+        uses: dulvui/godot4-ios-export@v1
+        with:
+          godot-version: "4.3"
+          working-directory: "."
+
+      - name: Empaquetar proyecto Xcode generado
+        run: |
+          mkdir -p build
+          zip -r build/iOS_Xcode_Project.zip build/ios/
+
+      - name: Subir artefacto compilado
+        uses: actions/upload-artifact@v4
+        with:
+          name: iOS-Xcode-Project
+          path: build/iOS_Xcode_Project.zip
