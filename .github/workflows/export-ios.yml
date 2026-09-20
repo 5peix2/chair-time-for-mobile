@@ -19,7 +19,7 @@ jobs:
       - name: Exportar proyecto con Godot 4
         uses: dulvui/godot4-ios-export@v1
         with:
-          godot-version: "4.3"
+          godot-version: "4.7"
           working-directory: "."
 
       - name: Empaquetar proyecto Xcode generado
