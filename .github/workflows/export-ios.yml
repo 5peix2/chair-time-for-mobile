@@ -16,6 +16,9 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
+      - name: Crear carpeta de destino
+        run: mkdir -p build/ios
+
       - name: Exportar proyecto con Godot 4
         uses: dulvui/godot4-ios-export@v1
         with:
