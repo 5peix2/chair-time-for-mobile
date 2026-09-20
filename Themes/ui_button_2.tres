@@ -1,0 +1,54 @@
+[gd_resource type="Theme" format=3 uid="uid://bmna0lx7nnfko"]
+
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="1_cjj0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjj0d"]
+atlas = ExtResource("1_cjj0d")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cjj0d"]
+texture = SubResource("AtlasTexture_cjj0d")
+modulate_color = Color(0.39215687, 0.5294118, 0.9607843, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tev4"]
+atlas = ExtResource("1_cjj0d")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vl4us"]
+texture = SubResource("AtlasTexture_0tev4")
+modulate_color = Color(0, 0.16862746, 0.35686275, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dkvx"]
+atlas = ExtResource("1_cjj0d")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb7ub"]
+texture = SubResource("AtlasTexture_4dkvx")
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsu1h"]
+atlas = ExtResource("1_cjj0d")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wleh"]
+texture = SubResource("AtlasTexture_dsu1h")
+modulate_color = Color(0.91764706, 0.32941177, 0.33333334, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqpu2"]
+atlas = ExtResource("1_cjj0d")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gqlru"]
+texture = SubResource("AtlasTexture_iqpu2")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_cjj0d")
+Button/styles/hover = SubResource("StyleBoxTexture_vl4us")
+Button/styles/normal = SubResource("StyleBoxTexture_hb7ub")
+Button/styles/pressed = SubResource("StyleBoxTexture_3wleh")
+Label/styles/normal = SubResource("StyleBoxTexture_gqlru")

@@ -1,0 +1,277 @@
+[gd_scene format=3 uid="uid://fkshs666uh16"]
+
+[ext_resource type="Script" uid="uid://bx4whg3r6mwcj" path="res://Scripts/time_minigame.gd" id="1_c2gke"]
+[ext_resource type="SpriteFrames" uid="uid://d1l23s4u1fym5" path="res://Animations/prueba.tres" id="2_d523i"]
+[ext_resource type="Texture2D" uid="uid://2jcfh0jdj5oq" path="res://Sprites/Square.png" id="2_g2mvy"]
+[ext_resource type="PackedScene" uid="uid://dpxhr17rpen31" path="res://Scenes/chair_changer.tscn" id="3_8v8co"]
+[ext_resource type="Texture2D" uid="uid://b1yrnqp5ct8f5" path="res://Sprites/PersonStanding.png" id="3_d523i"]
+[ext_resource type="Texture2D" uid="uid://cu8a7y2lnxupk" path="res://Sprites/PersonSlipping.png" id="4_ia1oe"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="5_8v8co"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="5_aagxi"]
+[ext_resource type="PackedScene" uid="uid://bvytwudw7ubea" path="res://Scenes/coin_counter.tscn" id="5_d523i"]
+[ext_resource type="Texture2D" uid="uid://1rfb6nrdccsi" path="res://Sprites/PersonFail.png" id="5_g2mvy"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="5_nu12w"]
+[ext_resource type="Texture2D" uid="uid://bupdm53kc0qno" path="res://Sprites/PersonSeated.png" id="6_80plf"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="6_540ss"]
+[ext_resource type="Texture2D" uid="uid://b78w6u7jht2mf" path="res://Sprites/PersonUnconfortable.png" id="8_jubuo"]
+[ext_resource type="Theme" uid="uid://bamidgx06xggv" path="res://Themes/ui_button.tres" id="9_n1jjw"]
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="14_qx5sn"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="15_nu12w"]
+[ext_resource type="Texture2D" uid="uid://xc8fvt30xg3c" path="res://Sprites/Effects.png" id="15_sfh5t"]
+[ext_resource type="Texture2D" uid="uid://bnl74vt2cppbe" path="res://Sprites/SquareBG.png" id="16_n1jjw"]
+[ext_resource type="AudioStream" uid="uid://cy5nwl5p25ulk" path="res://Sounds/start_time.mp3" id="20_vv178"]
+[ext_resource type="AudioStream" uid="uid://bxqhwqs3jf0xj" path="res://Sounds/chair_stop.mp3" id="21_cq3ys"]
+[ext_resource type="AudioStream" uid="uid://cug1ggl4fs33a" path="res://Sounds/person_fall.mp3" id="22_3pkum"]
+[ext_resource type="AudioStream" uid="uid://o5wroj0vh5ga" path="res://Sounds/sit_uncomfortable.mp3" id="23_vrvuo"]
+[ext_resource type="AudioStream" uid="uid://xxgnan3nfraq" path="res://Sounds/sit_perfect.mp3" id="24_fqjxc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_113yd"]
+atlas = ExtResource("5_aagxi")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2sg8"]
+atlas = ExtResource("5_aagxi")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmca"]
+atlas = ExtResource("5_aagxi")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1jjw"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.32879722, 0.5425009, 0.85437167, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cokvj"]
+atlas = ExtResource("5_8v8co")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx5sn"]
+atlas = ExtResource("4_ia1oe")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu12w"]
+atlas = ExtResource("5_g2mvy")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1jjw"]
+atlas = ExtResource("6_80plf")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v8co"]
+atlas = ExtResource("3_d523i")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfh5t"]
+atlas = ExtResource("8_jubuo")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_traub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx5sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu12w")
+}],
+"loop": 0,
+"name": &"Fail",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1jjw")
+}],
+"loop": 1,
+"name": &"Perfect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v8co")
+}],
+"loop": 1,
+"name": &"Standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfh5t")
+}],
+"loop": 1,
+"name": &"Uncomfortable",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w5wq"]
+atlas = ExtResource("15_sfh5t")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="Curve" id="Curve_vv178"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6284916, 0.99290776), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0sobc"]
+curve = SubResource("Curve_vv178")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cq3ys"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+alpha_curve = SubResource("CurveTexture_0sobc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfh5t"]
+texture = ExtResource("2_g2mvy")
+modulate_color = Color(0.37254903, 0.6901961, 0.7882353, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0w5wq"]
+shader = ExtResource("15_nu12w")
+shader_parameter/velocity = Vector2(0, 0.1)
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/color = Color(0.654902, 0.8784314, 0.85882354, 1)
+
+[node name="TimeMinigame" type="Node2D" unique_id=1724759084]
+script = ExtResource("1_c2gke")
+
+[node name="VisualCue" type="Sprite2D" parent="." unique_id=86028846]
+modulate = Color(0.7357552, 0.92664886, 0.9999997, 0.56078434)
+z_index = -2
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_113yd")
+
+[node name="VisualCue2" type="Sprite2D" parent="." unique_id=1013033522]
+modulate = Color(0.7357552, 0.92664886, 0.9999997, 0.56078434)
+z_index = -2
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_k2sg8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1747461480]
+
+[node name="Timer" type="Timer" parent="." unique_id=1729904059]
+wait_time = 2.0
+one_shot = true
+
+[node name="Chair" type="AnimatedSprite2D" parent="." unique_id=1304862502]
+physics_interpolation_mode = 2
+z_index = -1
+position = Vector2(2000, 150)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("2_d523i")
+animation = &"Chair"
+autoplay = "Chair"
+
+[node name="ChairChanger" parent="Chair" unique_id=1673432135 instance=ExtResource("3_8v8co")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=4383642]
+
+[node name="ActionButton" type="Button" parent="CanvasLayer" unique_id=1608552323]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 2000)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CoinCounter" parent="CanvasLayer" unique_id=128085127 instance=ExtResource("5_d523i")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=88622598]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -277.5
+offset_right = 277.5
+offset_bottom = 157.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=795090095]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1780497522]
+layout_mode = 2
+theme = ExtResource("9_n1jjw")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxTexture_n1jjw")
+text = "Click to start"
+
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=1462252362]
+z_index = 10
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+theme = ExtResource("5_nu12w")
+icon = SubResource("AtlasTexture_cokvj")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_540ss")
+scene_name = "game_menu"
+
+[node name="Person" type="AnimatedSprite2D" parent="." unique_id=871739986]
+z_index = 1
+position = Vector2(-103, 150)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_traub")
+animation = &"Standing"
+autoplay = "Standing"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Person" unique_id=525203082]
+z_index = -1
+position = Vector2(0, -130)
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_0w5wq")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_cq3ys")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=762758082]
+layer = -1
+
+[node name="Panel" type="Panel" parent="CanvasLayer2" unique_id=1296481863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sfh5t")
+
+[node name="CoolBGEffect" parent="CanvasLayer2" unique_id=724042496 instance=ExtResource("14_qx5sn")]
+material = SubResource("ShaderMaterial_0w5wq")
+texture = ExtResource("16_n1jjw")
+
+[node name="StartTimeSFX" type="AudioStreamPlayer" parent="." unique_id=1733069920]
+stream = ExtResource("20_vv178")
+
+[node name="ChairStopSFX" type="AudioStreamPlayer" parent="." unique_id=1809292079]
+stream = ExtResource("21_cq3ys")
+volume_db = -7.0
+pitch_scale = 1.5
+
+[node name="FallSFX" type="AudioStreamPlayer" parent="." unique_id=1239853445]
+stream = ExtResource("22_3pkum")
+volume_db = -5.0
+pitch_scale = 0.8
+
+[node name="UncomfortableSitSFX" type="AudioStreamPlayer" parent="." unique_id=1584747289]
+stream = ExtResource("23_vrvuo")
+
+[node name="PerfectSitSFX" type="AudioStreamPlayer" parent="." unique_id=733763950]
+stream = ExtResource("24_fqjxc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="CanvasLayer/ActionButton" to="." method="_on_action_button_button_down"]

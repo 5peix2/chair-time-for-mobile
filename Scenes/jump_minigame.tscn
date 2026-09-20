@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://dd87i42gwkayo"]
+
+[ext_resource type="SpriteFrames" uid="uid://d1l23s4u1fym5" path="res://Animations/prueba.tres" id="1_uv4x5"]
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="1_xvuw0"]
+[ext_resource type="Script" uid="uid://duvf1u4vgjoxo" path="res://Scripts/person.gd" id="2_lokyt"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="2_qbexd"]
+[ext_resource type="Texture2D" uid="uid://dar20awa7i8ke" path="res://Sprites/PersonCharging.png" id="3_dvdtu"]
+[ext_resource type="PackedScene" uid="uid://dpxhr17rpen31" path="res://Scenes/chair_changer.tscn" id="3_uv4x5"]
+[ext_resource type="Texture2D" uid="uid://bnl74vt2cppbe" path="res://Sprites/SquareBG.png" id="4_qbexd"]
+[ext_resource type="Texture2D" uid="uid://o5ibfo8xiifo" path="res://Sprites/PersonHit.png" id="4_uv4x5"]
+[ext_resource type="Script" uid="uid://bs7lnv0t8lete" path="res://Scripts/spawner.gd" id="5_1x7xm"]
+[ext_resource type="Texture2D" uid="uid://c3mutmv0msfcu" path="res://Sprites/PersonJumping.png" id="5_2g10m"]
+[ext_resource type="Texture2D" uid="uid://bupdm53kc0qno" path="res://Sprites/PersonSeated.png" id="6_xmhfx"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="7_4exum"]
+[ext_resource type="PackedScene" uid="uid://bvytwudw7ubea" path="res://Scenes/coin_counter.tscn" id="8_4exum"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="9_dvdtu"]
+[ext_resource type="AudioStream" uid="uid://3kikau2cyniy" path="res://Sounds/jump.mp3" id="12_a8gf8"]
+[ext_resource type="Texture2D" uid="uid://2jcfh0jdj5oq" path="res://Sprites/Square.png" id="13_2g10m"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="15_yy75q"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="17_yy75q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_traub"]
+texture = ExtResource("13_2g10m")
+modulate_color = Color(0.21960784, 0.4, 0.25490198, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy75q"]
+shader = ExtResource("2_qbexd")
+shader_parameter/velocity = Vector2(-0.5, 0)
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/color = Color(0.27908704, 0.51606345, 0.27574244, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g10m"]
+atlas = ExtResource("4_uv4x5")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy75q"]
+atlas = ExtResource("3_dvdtu")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmhfx"]
+atlas = ExtResource("5_2g10m")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvuw0"]
+atlas = ExtResource("6_xmhfx")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlk02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g10m")
+}],
+"loop": 1,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy75q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmhfx")
+}],
+"loop": 0,
+"name": &"Jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvuw0")
+}],
+"loop": 1,
+"name": &"Sit",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_yy75q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a8gf8"]
+resource_name = "change"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:global_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.2), Vector2(0.4, 0.2), Vector2(0.3, 0.4), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(3.363586, 1, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_js5ov"]
+_data = {
+&"RESET": SubResource("Animation_yy75q"),
+&"change": SubResource("Animation_a8gf8")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0isr"]
+atlas = ExtResource("9_dvdtu")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy75q"]
+size = Vector2(8211.5, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_traub"]
+atlas = ExtResource("17_yy75q")
+region = Rect2(0, 0, 500, 500)
+
+[node name="JumpMinigame" type="Node2D" unique_id=865532794]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1655249134]
+layer = -1
+
+[node name="Panel" type="Panel" parent="CanvasLayer2" unique_id=1478172167]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_traub")
+
+[node name="CoolBGEffect" parent="CanvasLayer2" unique_id=724042496 instance=ExtResource("1_xvuw0")]
+material = SubResource("ShaderMaterial_yy75q")
+texture = ExtResource("4_qbexd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1127222099]
+
+[node name="Person" type="RigidBody2D" parent="." unique_id=216160955]
+position = Vector2(420, 0)
+mass = 2.0
+gravity_scale = 2.0
+lock_rotation = true
+script = ExtResource("2_lokyt")
+jump_force = 2000
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Person" unique_id=1060667609]
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-79.999985, -45, -180, 56.666664, -166.66666, 230, 76.666664, 230, 153.33333, 150, 143.33333, -13.333333, 100, -141.1745, 99.99999, -210, 79.99999, -255, 44.999996, -275, 99.99999, -385, 74.99999, -449.99997, 10, -479.99997, -59.999996, -444.99997, -79.999985, -380, -19.999996, -280, -65, -250, -79.999985, -205)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Person" unique_id=891657243]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_dlk02")
+animation = &"Sit"
+autoplay = "Sit"
+
+[node name="Chair" type="AnimatedSprite2D" parent="Person" unique_id=228757691]
+z_index = -1
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("1_uv4x5")
+animation = &"Chair"
+autoplay = "Chair"
+
+[node name="ChairChanger" parent="Person/Chair" unique_id=1673432135 instance=ExtResource("3_uv4x5")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Person/Chair" unique_id=785090435]
+libraries/ = SubResource("AnimationLibrary_js5ov")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="Person" unique_id=1582281259]
+stream = ExtResource("12_a8gf8")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=240285729]
+script = ExtResource("5_1x7xm")
+spawn_time = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1312085322]
+
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=157153766]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("15_yy75q")
+icon = SubResource("AtlasTexture_q0isr")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_4exum")
+scene_name = "game_menu"
+
+[node name="CoinCounter" parent="CanvasLayer" unique_id=128085127 instance=ExtResource("8_4exum")]
+
+[node name="Ceiling" type="RigidBody2D" parent="." unique_id=109430766]
+position = Vector2(-93, -1189)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=978977426]
+shape = SubResource("RectangleShape2D_yy75q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ceiling" unique_id=1247621644]
+modulate = Color(0.65457314, 0.78818816, 0.34064347, 0.5)
+z_index = -2
+position = Vector2(0, -70)
+scale = Vector2(17.512001, 1)
+texture = SubResource("AtlasTexture_traub")
+
+[node name="Ground" type="RigidBody2D" parent="." unique_id=1108440814]
+position = Vector2(-116, 839)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=209824653]
+position = Vector2(0, -187)
+shape = SubResource("RectangleShape2D_yy75q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=2116532668]
+modulate = Color(0.65457314, 0.78818816, 0.34064347, 0.5)
+z_index = -2
+position = Vector2(11, 11.999985)
+scale = Vector2(30, 1.713)
+texture = SubResource("AtlasTexture_traub")

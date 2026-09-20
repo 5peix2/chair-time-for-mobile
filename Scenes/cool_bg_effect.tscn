@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://p756eq1expl7"]
+
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="1_lvp4u"]
+[ext_resource type="Texture2D" uid="uid://3ch43ma6ardc" path="res://Sprites/ChairBG.png" id="2_7cw8w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlk02"]
+shader = ExtResource("1_lvp4u")
+shader_parameter/velocity = Vector2(0.001, 0.001)
+shader_parameter/scale = Vector2(4, 4)
+shader_parameter/color = Color(0.92981416, 0.71102625, 0.47438002, 1)
+
+[node name="CoolBGEffect" type="TextureRect" unique_id=724042496]
+material = SubResource("ShaderMaterial_dlk02")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7cw8w")
+expand_mode = 1
+stretch_mode = 1

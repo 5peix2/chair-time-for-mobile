@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cwcp0e0ocrg3c"]
+
+[ext_resource type="Texture2D" uid="uid://xc8fvt30xg3c" path="res://Sprites/Effects.png" id="1_w70p3"]
+[ext_resource type="Script" uid="uid://befew1dau1xbc" path="res://Scripts/effect.gd" id="2_os84o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_traub"]
+atlas = ExtResource("1_w70p3")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="Animation" id="Animation_eml65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_7hqsu"]
+resource_name = "effect_appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707963267948966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.112656355, 4.4382796),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjcdn"]
+_data = {
+&"RESET": SubResource("Animation_eml65"),
+&"effect_appear": SubResource("Animation_7hqsu")
+}
+
+[node name="bonkVFX" type="Sprite2D" unique_id=1383646423]
+z_index = 5
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_traub")
+script = ExtResource("2_os84o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2139861760]
+libraries/ = SubResource("AnimationLibrary_bjcdn")
+autoplay = &"effect_appear"

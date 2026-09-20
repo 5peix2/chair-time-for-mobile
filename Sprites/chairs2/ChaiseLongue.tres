@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://021oxg87nnfa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_od5yi"]
+load_path = "res://.godot/imported/ChaiseLongue.png-b53755e1a6468b3cf1accfe3fd82aa7c.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_od5yi")
+region = Rect2(200, 0, 800, 800)

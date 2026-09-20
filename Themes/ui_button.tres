@@ -1,0 +1,105 @@
+[gd_resource type="Theme" format=3 uid="uid://bamidgx06xggv"]
+
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="1_x36e1"]
+[ext_resource type="FontFile" uid="uid://dwp7gcklo42qg" path="res://Fonts/ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf" id="2_yg721"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg721"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x36e1"]
+texture = SubResource("AtlasTexture_yg721")
+texture_margin_left = 100.0
+texture_margin_top = 100.0
+texture_margin_right = 100.0
+texture_margin_bottom = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ao8u"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tkw3"]
+texture = SubResource("AtlasTexture_6ao8u")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0, 0.16862746, 0.35686275, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x36e1"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yg721"]
+texture = SubResource("AtlasTexture_x36e1")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjv56"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1frn"]
+texture = SubResource("AtlasTexture_hjv56")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0.91764706, 0.32941177, 0.33333334, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmca"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pf12"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tkw3"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sft20"]
+texture = SubResource("AtlasTexture_4tkw3")
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1frn"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ao8u"]
+texture = SubResource("AtlasTexture_a1frn")
+modulate_color = Color(0.9522005, 0.50634444, 0.2882785, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sft20"]
+atlas = ExtResource("1_x36e1")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjv56"]
+texture = SubResource("AtlasTexture_sft20")
+modulate_color = Color(0.8785475, 0.3915115, 0.16904306, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tkw3"]
+content_margin_left = 100.0
+content_margin_right = 100.0
+bg_color = Color(0.96280533, 0.8257381, 0.68059355, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_x36e1")
+Button/styles/hover = SubResource("StyleBoxTexture_4tkw3")
+Button/styles/normal = SubResource("StyleBoxTexture_yg721")
+Button/styles/pressed = SubResource("StyleBoxTexture_a1frn")
+Label/font_sizes/font_size = 75
+Label/fonts/font = ExtResource("2_yg721")
+Label/styles/normal = SubResource("StyleBoxTexture_1pf12")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_sft20")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_6ao8u")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_hjv56")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_4tkw3")

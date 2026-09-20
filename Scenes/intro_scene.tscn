@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://bsbhxhnwq2lp3"]
+
+[ext_resource type="Texture2D" uid="uid://2jcfh0jdj5oq" path="res://Sprites/Square.png" id="1_2i7om"]
+[ext_resource type="Script" uid="uid://i4c75i7h4xs4" path="res://Scripts/dialogue_label.gd" id="3_0aspr"]
+[ext_resource type="FontFile" uid="uid://dwp7gcklo42qg" path="res://Fonts/ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf" id="3_2i7om"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="4_8u132"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="5_utn7q"]
+[ext_resource type="Texture2D" uid="uid://durm3n2057wbc" path="res://Sprites/chairs/Chair.png" id="6_rgqr6"]
+[ext_resource type="Texture2D" uid="uid://dkxoyv8v1b6bo" path="res://Sprites/chairs/Bar.png" id="7_o5qde"]
+[ext_resource type="Texture2D" uid="uid://dx4t2yn3d58r1" path="res://Sprites/chairs/Fire.png" id="8_0r11x"]
+[ext_resource type="Texture2D" uid="uid://2r5dpbepfdas" path="res://Sprites/chairs/Egg.png" id="9_h3vdg"]
+[ext_resource type="Texture2D" uid="uid://6jn8fguwqlha" path="res://Sprites/chairs/Tall.png" id="10_5hl40"]
+[ext_resource type="Texture2D" uid="uid://c8hqptr84wr3f" path="res://Sprites/chairs/Funny.png" id="11_50162"]
+[ext_resource type="Texture2D" uid="uid://bgcmkopmv2i1p" path="res://Sprites/chairs/Back.png" id="12_rpo8s"]
+[ext_resource type="Texture2D" uid="uid://taatxq03b0hx" path="res://Sprites/chairs/Block.png" id="13_fn4i7"]
+[ext_resource type="Texture2D" uid="uid://cxcmeppyvaffi" path="res://Sprites/chairs/Magic.png" id="14_bask6"]
+[ext_resource type="Texture2D" uid="uid://bl4an3c4wjv4v" path="res://Sprites/chairs/Gym.png" id="15_5piwg"]
+[ext_resource type="Texture2D" uid="uid://d0ashyll8uy2c" path="res://Sprites/chairs/3D.png" id="16_f6tbw"]
+[ext_resource type="Texture2D" uid="uid://btu6s4auamdd6" path="res://Sprites/chairs/Alien.png" id="17_r06fj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_traub"]
+texture = ExtResource("1_2i7om")
+modulate_color = Color(3.008172e-09, 0.061354958, 0.120783724, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg721"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x36e1"]
+texture = SubResource("AtlasTexture_yg721")
+texture_margin_left = 100.0
+texture_margin_top = 100.0
+texture_margin_right = 100.0
+texture_margin_bottom = 100.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ao8u"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tkw3"]
+texture = SubResource("AtlasTexture_6ao8u")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0, 0.16862746, 0.35686275, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x36e1"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yg721"]
+texture = SubResource("AtlasTexture_x36e1")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjv56"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1frn"]
+texture = SubResource("AtlasTexture_hjv56")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 50.0
+modulate_color = Color(0.91764706, 0.32941177, 0.33333334, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmca"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pf12"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tkw3"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sft20"]
+texture = SubResource("AtlasTexture_4tkw3")
+modulate_color = Color(0.9411765, 0.48235294, 0.24705882, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1frn"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ao8u"]
+texture = SubResource("AtlasTexture_a1frn")
+modulate_color = Color(0.9522005, 0.50634444, 0.2882785, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sft20"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjv56"]
+texture = SubResource("AtlasTexture_sft20")
+modulate_color = Color(0.8785475, 0.3915115, 0.16904306, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tkw3"]
+content_margin_left = 100.0
+content_margin_right = 100.0
+bg_color = Color(0.96280533, 0.8257381, 0.68059355, 1)
+
+[sub_resource type="Theme" id="Theme_vh6is"]
+Button/styles/disabled = SubResource("StyleBoxTexture_x36e1")
+Button/styles/hover = SubResource("StyleBoxTexture_4tkw3")
+Button/styles/normal = SubResource("StyleBoxTexture_yg721")
+Button/styles/pressed = SubResource("StyleBoxTexture_a1frn")
+Label/font_sizes/font_size = 75
+Label/fonts/font = ExtResource("3_2i7om")
+Label/styles/normal = SubResource("StyleBoxTexture_1pf12")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_sft20")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_6ao8u")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_hjv56")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_4tkw3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0aspr"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0, 0.16862746, 0.35686275, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_traub"]
+atlas = ExtResource("5_utn7q")
+region = Rect2(1000, 0, 500, 500)
+
+[node name="IntroScene" type="Control" unique_id=1939894626]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1992098916]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1563158247]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_traub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=1793863931]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -350.0
+offset_right = 350.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1348114712]
+custom_minimum_size = Vector2(700, 700)
+layout_mode = 2
+theme = SubResource("Theme_vh6is")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_0aspr")
+text = "This is an example."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_0aspr")
+isIntro = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer" unique_id=956505476]
+layout_mode = 2
+alignment = 1
+
+[node name="NextButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer" unique_id=130795078]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("4_8u132")
+icon = SubResource("AtlasTexture_traub")
+icon_alignment = 1
+expand_icon = true
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=261821762]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -454.0
+offset_right = 454.0
+offset_bottom = 604.0
+grow_horizontal = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1578081761]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("6_rgqr6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1355674331]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("7_o5qde")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1516613532]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("8_0r11x")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1674607779]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("9_h3vdg")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=832534073]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("10_5hl40")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=2090881890]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("11_50162")
+expand_mode = 1
+
+[node name="GridContainer2" type="GridContainer" parent="CanvasLayer" unique_id=730264845]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -454.0
+offset_top = -604.0
+offset_right = 454.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=527515812]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("12_rpo8s")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=1038250853]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("13_fn4i7")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=1237300832]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("14_bask6")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=763957916]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("15_5piwg")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=553591766]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("16_f6tbw")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/GridContainer2" unique_id=21970271]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("17_r06fj")
+expand_mode = 1
+
+[connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/NextButton" to="CanvasLayer/Panel/VBoxContainer/DialogueLabel" method="_on_next_button_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/VBoxContainer/HBoxContainer/NextButton" to="CanvasLayer/Panel/VBoxContainer/DialogueLabel" method="_on_next_button_mouse_entered"]

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b0b47bbx3stns"]
+
+[ext_resource type="Texture2D" uid="uid://bdnqop54u1qgb" path="res://Sprites/UI_2.png" id="1_jgi06"]
+[ext_resource type="Script" uid="uid://wk7aiyvn5anx" path="res://Scripts/coin.gd" id="2_jgi06"]
+[ext_resource type="Texture2D" uid="uid://xc8fvt30xg3c" path="res://Sprites/Effects.png" id="3_g537i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfh5t"]
+atlas = ExtResource("1_jgi06")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_traub"]
+radius = 250.19989
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngbte"]
+atlas = ExtResource("3_g537i")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="Curve" id="Curve_ngbte"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0sobc"]
+curve = SubResource("Curve_ngbte")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7p3rr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0, 150, 1)
+direction = Vector3(0, 0, 0)
+spread = 90.0
+initial_velocity_min = -100.0
+initial_velocity_max = -100.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.049999997
+alpha_curve = SubResource("CurveTexture_0sobc")
+
+[node name="Coin" type="Sprite2D" unique_id=1189677913]
+z_index = 1
+scale = Vector2(0.1, 0.1)
+texture = SubResource("AtlasTexture_sfh5t")
+script = ExtResource("2_jgi06")
+speed = 100.0
+value = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=220885743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2028658361]
+shape = SubResource("CircleShape2D_traub")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1076338651]
+z_index = -1
+amount = 5
+texture = SubResource("AtlasTexture_ngbte")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_7p3rr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

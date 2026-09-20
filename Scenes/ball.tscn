@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bh75k33b258le"]
+
+[ext_resource type="Texture2D" uid="uid://di60wlp560s10" path="res://Sprites/TennisBall.png" id="1_d60mj"]
+[ext_resource type="Script" uid="uid://dph3n3t674y2k" path="res://Scripts/ball.gd" id="1_ij5cq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bto2d"]
+bounce = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_traub"]
+atlas = ExtResource("1_d60mj")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlk02"]
+radius = 87.005745
+
+[node name="Ball" type="RigidBody2D" unique_id=386295311]
+physics_material_override = SubResource("PhysicsMaterial_bto2d")
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_ij5cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1569245270]
+scale = Vector2(0.35, 0.35)
+texture = SubResource("AtlasTexture_traub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725390499]
+z_index = 2
+shape = SubResource("CircleShape2D_dlk02")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

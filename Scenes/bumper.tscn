@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://de6q177xnw22x"]
+
+[ext_resource type="Texture2D" uid="uid://d1cay7oi0lcgu" path="res://Sprites/bumper.png" id="1_1l0as"]
+[ext_resource type="Script" uid="uid://csifg62t37t2v" path="res://Scripts/bomb.gd" id="2_vbesc"]
+[ext_resource type="Texture2D" uid="uid://xc8fvt30xg3c" path="res://Sprites/Effects.png" id="3_vbesc"]
+[ext_resource type="AudioStream" uid="uid://dtn4vrsfqw22g" path="res://Sounds/pinball.mp3" id="4_das60"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_traub"]
+radius = 233.33333
+
+[sub_resource type="Animation" id="Animation_1l0as"]
+resource_name = "Bump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.14358732, 0.060371093, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.4, 0.4), Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Effect:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 0.11662915, 3.7321289),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vbesc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Effect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_das60"]
+_data = {
+&"Bump": SubResource("Animation_1l0as"),
+&"RESET": SubResource("Animation_vbesc")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_traub"]
+atlas = ExtResource("3_vbesc")
+region = Rect2(0, 0, 500, 500)
+
+[node name="Bumper" type="Sprite2D" unique_id=1189677913]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_1l0as")
+script = ExtResource("2_vbesc")
+speed = 100.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=220885743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1733843354]
+shape = SubResource("CircleShape2D_traub")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=576995748]
+libraries/ = SubResource("AnimationLibrary_das60")
+autoplay = &"RESET"
+
+[node name="Effect" type="Sprite2D" parent="." unique_id=1809068039]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_traub")
+
+[node name="BumperSFX" type="AudioStreamPlayer" parent="." unique_id=1708232149]
+stream = ExtResource("4_das60")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

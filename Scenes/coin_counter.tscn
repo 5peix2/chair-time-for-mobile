@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://bvytwudw7ubea"]
+
+[ext_resource type="Script" uid="uid://dcg0wn282agba" path="res://Scripts/coin_counter.gd" id="1_gqlru"]
+[ext_resource type="Texture2D" uid="uid://bdnqop54u1qgb" path="res://Sprites/UI_2.png" id="2_gqlru"]
+[ext_resource type="FontFile" uid="uid://dwp7gcklo42qg" path="res://Fonts/ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf" id="3_iqpu2"]
+[ext_resource type="AudioStream" uid="uid://b2iy0nxng71vl" path="res://Sounds/gain_money.mp3" id="4_xcfmh"]
+[ext_resource type="AudioStream" uid="uid://ca2327byto88w" path="res://Sounds/lose_money.mp3" id="5_0nqvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvpp4"]
+atlas = ExtResource("2_gqlru")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="Animation" id="Animation_iqpu2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [100]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_d6l0x"]
+resource_name = "bounce"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.18111305, 0.23325822, 2.462288),
+"update": 0,
+"values": [100, 105, 100]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.21763767, 0.18946487, 1.2745618),
+"update": 0,
+"values": [Color(0.9882353, 1, 0.6039216, 1), Color(0.9897966, 1, 0.60498136, 1), null]
+}
+
+[sub_resource type="Animation" id="Animation_xcfmh"]
+resource_name = "bounce_red"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(4.0981207, 1.5157161, 2.462288),
+"update": 0,
+"values": [100, 105, 100]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.21763767, 0.18946487, 1.2745618),
+"update": 0,
+"values": [Color(1, 0.4519567, 0.4610045, 1), Color(1, 0.4509804, 0.4627451, 1), null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcfmh"]
+_data = {
+&"RESET": SubResource("Animation_iqpu2"),
+&"bounce": SubResource("Animation_d6l0x"),
+&"bounce_red": SubResource("Animation_xcfmh")
+}
+
+[node name="CoinCounter" type="HBoxContainer" unique_id=128085127]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -275.0
+offset_bottom = 148.0
+grow_horizontal = 0
+pivot_offset = Vector2(275, 0)
+script = ExtResource("1_gqlru")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1996521697]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+texture = SubResource("AtlasTexture_xvpp4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="." unique_id=1880309872]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=221968224]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iqpu2")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=771727047]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=31477657]
+libraries/ = SubResource("AnimationLibrary_xcfmh")
+
+[node name="MoneyGainSFX" type="AudioStreamPlayer" parent="." unique_id=1248605430]
+stream = ExtResource("4_xcfmh")
+
+[node name="MoneyLoseSFX" type="AudioStreamPlayer" parent="." unique_id=1906364478]
+stream = ExtResource("5_0nqvc")

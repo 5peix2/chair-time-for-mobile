@@ -1,0 +1,350 @@
+[gd_scene format=3 uid="uid://32pj1i4t3ep1"]
+
+[ext_resource type="Script" uid="uid://crd1ben2s87uw" path="res://Scripts/shop_menu.gd" id="1_m1l3a"]
+[ext_resource type="Texture2D" uid="uid://bdnqop54u1qgb" path="res://Sprites/UI_2.png" id="2_4pkg8"]
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="2_8auaq"]
+[ext_resource type="Script" uid="uid://r82gbk17qkqy" path="res://Scripts/normal_box.gd" id="2_hik0y"]
+[ext_resource type="Theme" uid="uid://bfttgjjq2gyma" path="res://Themes/box_button.tres" id="2_psjpk"]
+[ext_resource type="Script" uid="uid://dtp4vb6bk62du" path="res://Scripts/random_box.gd" id="2_xdhm7"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="3_hsifw"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="3_lvwfa"]
+[ext_resource type="Script" uid="uid://c1gf181cke2we" path="res://Scripts/uncommon_box.gd" id="3_m1l3a"]
+[ext_resource type="Script" uid="uid://ccop1bdp4iaya" path="res://Scripts/special_box.gd" id="4_4pkg8"]
+[ext_resource type="Texture2D" uid="uid://mbc08ytmqwlk" path="res://Sprites/ShopBG.png" id="4_ajvap"]
+[ext_resource type="Theme" uid="uid://bamidgx06xggv" path="res://Themes/ui_button.tres" id="5_ajvap"]
+[ext_resource type="Script" uid="uid://bslqmefv0w7dg" path="res://Scripts/epic_box.gd" id="5_gtyft"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="6_gtqk8"]
+[ext_resource type="Script" uid="uid://c1g4derf0qcas" path="res://Scripts/new_box.gd" id="7_psjpk"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="9_4pkg8"]
+[ext_resource type="FontFile" uid="uid://dwp7gcklo42qg" path="res://Fonts/ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf" id="9_gtqk8"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="9_gtyft"]
+[ext_resource type="PackedScene" uid="uid://bvytwudw7ubea" path="res://Scenes/coin_counter.tscn" id="11_4pkg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pkg8"]
+bg_color = Color(0.955406, 0.789456, 0.61186904, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtqk8"]
+shader = ExtResource("3_hsifw")
+shader_parameter/velocity = Vector2(0.5, 0)
+shader_parameter/scale = Vector2(2, 2)
+shader_parameter/color = Color(0.92981416, 0.71102625, 0.47438002, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmca"]
+atlas = ExtResource("6_gtqk8")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yilg3"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.92156863, 0.8039216, 0.34901962, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqpu2"]
+atlas = ExtResource("2_4pkg8")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fc5uy"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.3254902, 0.8627451, 0.59607846, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q7qe3"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(1, 0.42745098, 0.4117647, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksgbx"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.6627451, 0.59607846, 0.92941177, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iddgl"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.05882353, 0.52156866, 0.7607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1u4gu"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(1, 0.25490198, 0.60784316, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6l0x"]
+atlas = ExtResource("9_4pkg8")
+region = Rect2(500, 500, 500, 500)
+
+[node name="ShopMenu" type="CanvasLayer" unique_id=399170764]
+script = ExtResource("1_m1l3a")
+
+[node name="Panel" type="Panel" parent="." unique_id=1901006437]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_4pkg8")
+
+[node name="CoolBGEffect" parent="." unique_id=724042496 instance=ExtResource("2_8auaq")]
+material = SubResource("ShaderMaterial_gtqk8")
+texture = ExtResource("4_ajvap")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=820669332]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2278.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=1078007564]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1213931830]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4" unique_id=23462647]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 100
+text = "SHOP"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1407042102]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=540285185]
+layout_mode = 2
+
+[node name="BoxName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=296015614]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_yilg3")
+text = "Common"
+horizontal_alignment = 1
+
+[node name="Normal" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=241383773]
+modulate = Color(0.92026174, 0.8049102, 0.3505488, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_hik0y")
+price = 100
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1090212712]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=959573138]
+layout_mode = 2
+
+[node name="BoxName2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1479673980]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_fc5uy")
+text = "Themed"
+horizontal_alignment = 1
+
+[node name="Uncommon" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=255274575]
+modulate = Color(0.32624742, 0.8612238, 0.5969831, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_m1l3a")
+price = 125
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1772921421]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=672992269]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3" unique_id=1282409933]
+layout_mode = 2
+
+[node name="BoxName2" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer3" unique_id=628153051]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_q7qe3")
+text = "Chairspecial"
+horizontal_alignment = 1
+
+[node name="Special" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer3" unique_id=1462143538]
+modulate = Color(1, 0.4277358, 0.41097403, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_4pkg8")
+price = 150
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer3" unique_id=1303142161]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3" unique_id=1617317059]
+layout_mode = 2
+
+[node name="BoxName2" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer4" unique_id=1270421794]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_ksgbx")
+text = "Unique"
+horizontal_alignment = 1
+
+[node name="Epic" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer4" unique_id=118097854]
+modulate = Color(0.661879, 0.5971352, 0.9294483, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_gtyft")
+price = 200
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer3/VBoxContainer4" unique_id=2145794302]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=681614046]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=587352305]
+layout_mode = 2
+
+[node name="BoxName2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=628697972]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_iddgl")
+text = "Random"
+horizontal_alignment = 1
+
+[node name="Random" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=585360537]
+modulate = Color(0.05806783, 0.5233783, 0.75999826, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_xdhm7")
+price = 100
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1149053428]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=396083794]
+layout_mode = 2
+
+[node name="BoxName2" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=424459474]
+layout_mode = 2
+theme = ExtResource("5_ajvap")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_1u4gu")
+text = "New"
+horizontal_alignment = 1
+
+[node name="New" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1165186058]
+modulate = Color(1, 0.2559587, 0.6065205, 1)
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_psjpk")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_iqpu2")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_psjpk")
+price = 300
+
+[node name="Price" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer2" unique_id=1369772401]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gtqk8")
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=159699488]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 208.0
+theme = ExtResource("9_gtyft")
+icon = SubResource("AtlasTexture_d6l0x")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_lvwfa")
+scene_name = "title_menu"
+
+[node name="CoinCounter" parent="." unique_id=128085127 instance=ExtResource("11_4pkg8")]
+offset_bottom = 208.0
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Normal" to="VBoxContainer/HBoxContainer/VBoxContainer/Normal" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer2/Uncommon" to="VBoxContainer/HBoxContainer/VBoxContainer2/Uncommon" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/VBoxContainer3/Special" to="VBoxContainer/HBoxContainer3/VBoxContainer3/Special" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/VBoxContainer4/Epic" to="VBoxContainer/HBoxContainer3/VBoxContainer4/Epic" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer2/VBoxContainer/Random" to="VBoxContainer/HBoxContainer2/VBoxContainer/Random" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer2/VBoxContainer2/New" to="VBoxContainer/HBoxContainer2/VBoxContainer2/New" method="_on_button_up"]

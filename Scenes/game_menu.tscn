@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cojnynxwfq42u"]
+
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="1_4sb7q"]
+[ext_resource type="Texture2D" uid="uid://bdnqop54u1qgb" path="res://Sprites/UI_2.png" id="1_5a81j"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="1_ekb2d"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="2_2bm1k"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="3_5a81j"]
+[ext_resource type="Texture2D" uid="uid://gdghrdh1ssp4" path="res://Sprites/GameBG.png" id="3_68yqx"]
+[ext_resource type="Theme" uid="uid://bamidgx06xggv" path="res://Themes/ui_button.tres" id="4_68yqx"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="5_fw0i3"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="8_t3vxx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5a81j"]
+bg_color = Color(0.955406, 0.789456, 0.61186904, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4sb7q"]
+shader = ExtResource("2_2bm1k")
+shader_parameter/velocity = Vector2(-1, 0)
+shader_parameter/scale = Vector2(2, 2)
+shader_parameter/color = Color(0.92981416, 0.71102625, 0.47438002, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dkvx"]
+atlas = ExtResource("8_t3vxx")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3vxx"]
+texture = SubResource("AtlasTexture_4dkvx")
+modulate_color = Color(1, 0.79595864, 0.25766784, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtyft"]
+atlas = ExtResource("1_5a81j")
+region = Rect2(550, 100, 400, 300)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68yqx"]
+texture = SubResource("AtlasTexture_4dkvx")
+modulate_color = Color(0.41568628, 0.6, 0.30588236, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pkg8"]
+atlas = ExtResource("1_5a81j")
+region = Rect2(50, 100, 350, 300)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2oiwv"]
+texture = SubResource("AtlasTexture_4dkvx")
+modulate_color = Color(0.37254903, 0.6901961, 0.7882353, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psjpk"]
+atlas = ExtResource("1_5a81j")
+region = Rect2(1000, 50, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ips4g"]
+atlas = ExtResource("3_5a81j")
+region = Rect2(500, 500, 500, 500)
+
+[node name="GameMenu" type="Control" unique_id=1501396427]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1783691865]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=2143868577]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5a81j")
+
+[node name="CoolBGEffect" parent="CanvasLayer" unique_id=724042496 instance=ExtResource("1_4sb7q")]
+material = SubResource("ShaderMaterial_4sb7q")
+texture = ExtResource("3_68yqx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=273180694]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 2269.0
+grow_horizontal = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1020180653]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1108343825]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("4_68yqx")
+theme_override_font_sizes/font_size = 130
+text = "Games"
+horizontal_alignment = 1
+
+[node name="RainButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=702389070]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme = ExtResource("1_ekb2d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t3vxx")
+icon = SubResource("AtlasTexture_gtyft")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_fw0i3")
+scene_name = "rain_minigame"
+
+[node name="JumpButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=675826981]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme = ExtResource("1_ekb2d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_68yqx")
+icon = SubResource("AtlasTexture_4pkg8")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_fw0i3")
+scene_name = "jump_minigame"
+
+[node name="SecondButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=477732210]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+theme = ExtResource("1_ekb2d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2oiwv")
+icon = SubResource("AtlasTexture_psjpk")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_fw0i3")
+scene_name = "time_minigame"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1295510479]
+offset_right = 569.0
+offset_bottom = 208.0
+
+[node name="BackButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=2128681344]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_ekb2d")
+icon = SubResource("AtlasTexture_ips4g")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_fw0i3")
+scene_name = "title_menu"

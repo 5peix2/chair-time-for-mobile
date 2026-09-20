@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://bvstmyr5idwy1"]
+
+[ext_resource type="SpriteFrames" uid="uid://d1l23s4u1fym5" path="res://Animations/prueba.tres" id="1_5j61x"]
+[ext_resource type="Script" uid="uid://75q6bcspavfe" path="res://Scripts/chair.gd" id="2_3345q"]
+[ext_resource type="PackedScene" uid="uid://dpxhr17rpen31" path="res://Scenes/chair_changer.tscn" id="3_2kaik"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="7_2kaik"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="7_5j61x"]
+[ext_resource type="PackedScene" uid="uid://bvytwudw7ubea" path="res://Scenes/coin_counter.tscn" id="8_5j61x"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="9_ndb46"]
+[ext_resource type="Texture2D" uid="uid://2jcfh0jdj5oq" path="res://Sprites/Square.png" id="11_hx32s"]
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="12_rti3e"]
+[ext_resource type="PackedScene" uid="uid://bh75k33b258le" path="res://Scenes/ball.tscn" id="13_bc2qe"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="13_ndb46"]
+[ext_resource type="Texture2D" uid="uid://bnl74vt2cppbe" path="res://Sprites/SquareBG.png" id="14_4hmh2"]
+
+[sub_resource type="Animation" id="Animation_yy75q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a8gf8"]
+resource_name = "change"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(3.363586, 1, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.4), Vector2(0.8, 0.4), Vector2(0.6, 0.8), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_bto2d"]
+resource_name = "tilt_left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(0.7578583, 1.5157155),
+"update": 0,
+"values": [0.0, -0.34906584]
+}
+
+[sub_resource type="Animation" id="Animation_bc2qe"]
+resource_name = "tilt_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.7320432, 0.26794344),
+"update": 0,
+"values": [0.0, 0.34906584]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hx32s"]
+_data = {
+&"RESET": SubResource("Animation_yy75q"),
+&"change": SubResource("Animation_a8gf8"),
+&"tilt_left": SubResource("Animation_bto2d"),
+&"tilt_right": SubResource("Animation_bc2qe")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekb2d"]
+atlas = ExtResource("7_2kaik")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18u2e"]
+texture = ExtResource("11_hx32s")
+modulate_color = Color(0.99768287, 0.8359956, 0.5417983, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tyud0"]
+shader = ExtResource("13_ndb46")
+shader_parameter/velocity = Vector2(-0.5, -0.5)
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/color = Color(0.91800237, 0.7686954, 0.30299434, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlk02"]
+size = Vector2(100, 10000)
+
+[node name="RainMinigame" type="Node2D" unique_id=1099862308]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=927152373]
+
+[node name="Chair" type="AnimatedSprite2D" parent="Camera2D" unique_id=254659054]
+z_index = 1
+position = Vector2(0, 500)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("1_5j61x")
+animation = &"Chair"
+script = ExtResource("2_3345q")
+max_imp = 500
+
+[node name="ChairChanger" parent="Camera2D/Chair" unique_id=1673432135 instance=ExtResource("3_2kaik")]
+
+[node name="Area2D" type="Area2D" parent="Camera2D/Chair" unique_id=1348451716]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/Chair/Area2D" unique_id=597513805]
+polygon = PackedVector2Array(-93.33333, -33.333252, 160, -33.333252, 156.66666, -10, 76.666664, 76.66675, -180, 76.66675, -183.33333, 53.333374)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Chair" unique_id=196791460]
+libraries/ = SubResource("AnimationLibrary_hx32s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=462337894]
+
+[node name="CoinCounter" parent="CanvasLayer" unique_id=128085127 instance=ExtResource("8_5j61x")]
+
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=1503033527]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("9_ndb46")
+icon = SubResource("AtlasTexture_ekb2d")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_5j61x")
+scene_name = "game_menu"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=786064109]
+layer = -1
+
+[node name="Panel" type="Panel" parent="CanvasLayer2" unique_id=1015613862]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_18u2e")
+
+[node name="CoolBGEffect" parent="CanvasLayer2" unique_id=724042496 instance=ExtResource("12_rti3e")]
+material = SubResource("ShaderMaterial_tyud0")
+texture = ExtResource("14_4hmh2")
+
+[node name="Ball" parent="." unique_id=386295311 instance=ExtResource("13_bc2qe")]
+z_index = 2
+position = Vector2(0, -3000)
+mass = 0.5
+
+[node name="Ball2" parent="." unique_id=1653052564 instance=ExtResource("13_bc2qe")]
+z_index = 2
+position = Vector2(0, -4000)
+mass = 0.5
+
+[node name="Wall" type="RigidBody2D" parent="." unique_id=652746718]
+position = Vector2(550, 0)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=378624911]
+shape = SubResource("RectangleShape2D_dlk02")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall" unique_id=1482635498]
+modulate = Color(0.9155149, 0.6502625, 0.23076516, 1)
+position = Vector2(1015.74994, 0)
+scale = Vector2(4.291, 9)
+texture = ExtResource("14_4hmh2")
+offset = Vector2(-20, 0)
+
+[node name="Wall2" type="RigidBody2D" parent="." unique_id=185249125]
+position = Vector2(-550, 0)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=154465806]
+shape = SubResource("RectangleShape2D_dlk02")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall2" unique_id=1035479336]
+modulate = Color(0.9155149, 0.6502625, 0.23076516, 1)
+position = Vector2(-840.9998, 0)
+scale = Vector2(4.291, 9)
+texture = ExtResource("14_4hmh2")
+offset = Vector2(-20, 0)
+
+[connection signal="body_entered" from="Camera2D/Chair/Area2D" to="Camera2D/Chair" method="_on_area_2d_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dg3rspqujjr88"]
+
+[ext_resource type="Texture2D" uid="uid://d1cay7oi0lcgu" path="res://Sprites/bumper.png" id="1_00taj"]
+[ext_resource type="Script" uid="uid://cwmfyd2jh23k0" path="res://Scripts/bumper_2.gd" id="2_xmoq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_traub"]
+radius = 233.33333
+
+[node name="Bumper2" type="Sprite2D" unique_id=1189677913]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_00taj")
+script = ExtResource("2_xmoq3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=220885743]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1733843354]
+shape = SubResource("CircleShape2D_traub")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

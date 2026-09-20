@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://bfttgjjq2gyma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqkpd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qic4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2kuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akyyq"]
+
+[resource]
+Button/colors/icon_hover_color = Color(6.3913965, 6.3913965, 6.3913965, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_dqkpd")
+Button/styles/hover = SubResource("StyleBoxEmpty_6qic4")
+Button/styles/normal = SubResource("StyleBoxEmpty_h2kuu")
+Button/styles/pressed = SubResource("StyleBoxEmpty_akyyq")

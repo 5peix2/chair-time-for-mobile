@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://c4fuxk08q1nib"]
+
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="1_abunw"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="1_k7e2l"]
+[ext_resource type="Script" uid="uid://dflcr4ayswnu6" path="res://Scripts/volume_slider.gd" id="2_6hstk"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="2_hip1h"]
+[ext_resource type="Texture2D" uid="uid://dpo65bmaxdbfi" path="res://Sprites/SettingsBG.png" id="3_74qnm"]
+[ext_resource type="Script" uid="uid://bu2b8onfqbghi" path="res://Scripts/reset_button.gd" id="3_hn7ol"]
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="3_k7e2l"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="3_mi3ua"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="3_se3oh"]
+[ext_resource type="Theme" uid="uid://bamidgx06xggv" path="res://Themes/ui_button.tres" id="4_hip1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn7ol"]
+bg_color = Color(0.955406, 0.789456, 0.61186904, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1er8"]
+shader = ExtResource("2_hip1h")
+shader_parameter/velocity = Vector2(0, -1)
+shader_parameter/scale = Vector2(4, 4)
+shader_parameter/color = Color(0.92981416, 0.71102625, 0.47438002, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngn6f"]
+bg_color = Color(0.95444196, 0.7276086, 0.44859326, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmca"]
+atlas = ExtResource("3_se3oh")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hip1h"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.9411765, 0.62352943, 0.2901961, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aagxi"]
+atlas = ExtResource("1_k7e2l")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74qnm"]
+texture = SubResource("AtlasTexture_vxmca")
+texture_margin_left = 40.0
+texture_margin_top = 30.0
+texture_margin_right = 40.0
+texture_margin_bottom = 30.0
+modulate_color = Color(0.9411765, 0.62352943, 0.2901961, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oktji"]
+atlas = ExtResource("3_se3oh")
+region = Rect2(550, 1050, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psc7k"]
+atlas = ExtResource("1_k7e2l")
+region = Rect2(500, 500, 500, 500)
+
+[node name="ConfigMenu" type="Control" unique_id=819506429]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=873540193]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1570094557]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hn7ol")
+
+[node name="CoolBGEffect" parent="CanvasLayer" unique_id=724042496 instance=ExtResource("1_abunw")]
+material = SubResource("ShaderMaterial_t1er8")
+texture = ExtResource("3_74qnm")
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=1958579043]
+custom_minimum_size = Vector2(750, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ngn6f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1246237700]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -323.0
+offset_right = 350.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=814992055]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1176568016]
+layout_mode = 2
+theme = ExtResource("4_hip1h")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxTexture_hip1h")
+text = "Master volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=156292688]
+layout_mode = 2
+alignment = 1
+
+[node name="VolumeImage" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1023806661]
+self_modulate = Color(0.9411765, 0.48235294, 0.24705882, 1)
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+texture = SubResource("AtlasTexture_aagxi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=224560880]
+self_modulate = Color(0.9411765, 0.48235294, 0.24705882, 1)
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_6hstk")
+bus_name = "Master"
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1015325953]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1544925222]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme = ExtResource("4_hip1h")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxTexture_74qnm")
+text = "Click 5 times to reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=759674499 node_paths=PackedStringArray("reset_label")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_k7e2l")
+theme_override_font_sizes/font_size = 50
+icon = SubResource("AtlasTexture_oktji")
+expand_icon = true
+script = ExtResource("3_hn7ol")
+reset_label = NodePath("../Label")
+
+[node name="BackButton" type="Button" parent="CanvasLayer" unique_id=1118620104]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("3_k7e2l")
+icon = SubResource("AtlasTexture_psc7k")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_mi3ua")
+scene_name = "title_menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=734223291]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -322.0
+offset_right = 322.0
+offset_bottom = 242.0
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer2" unique_id=501705986]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/VBoxContainer2" unique_id=922799078]
+layout_mode = 2
+theme = ExtResource("4_hip1h")
+theme_override_font_sizes/font_size = 120
+text = "Settings"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/ResetButton" to="CanvasLayer/VBoxContainer/ResetButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/ResetButton" to="CanvasLayer/VBoxContainer/ResetButton" method="_on_mouse_entered"]

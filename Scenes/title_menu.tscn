@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://uc0iqpejl2mr"]
+
+[ext_resource type="Theme" uid="uid://bmna0lx7nnfko" path="res://Themes/ui_button_2.tres" id="1_7t4c3"]
+[ext_resource type="PackedScene" uid="uid://p756eq1expl7" path="res://Scenes/cool_bg_effect.tscn" id="1_18ckb"]
+[ext_resource type="Script" uid="uid://chdwwt3un2lg7" path="res://Scripts/exit_button.gd" id="2_18ckb"]
+[ext_resource type="Shader" uid="uid://cy2n8iufiyurt" path="res://Shaders/title_menu.gdshader" id="2_v7bs7"]
+[ext_resource type="Texture2D" uid="uid://cx7yaq4hxdv2v" path="res://Sprites/ChairTitle.png" id="3_8rxpg"]
+[ext_resource type="Script" uid="uid://cbhdu0cgh4i1k" path="res://Scripts/scene_change.gd" id="4_7t4c3"]
+[ext_resource type="Theme" uid="uid://bamidgx06xggv" path="res://Themes/ui_button.tres" id="5_8rxpg"]
+[ext_resource type="Texture2D" uid="uid://d5f4tv6l2c82" path="res://Sprites/UI_3.png" id="5_fjcmt"]
+[ext_resource type="Texture2D" uid="uid://cnqmbktu25juu" path="res://Sprites/UI_1.png" id="6_7t4c3"]
+[ext_resource type="Script" uid="uid://cjloi6tqt3cjo" path="res://Scripts/rainbow_button.gd" id="10_hsddo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_traub"]
+bg_color = Color(0.955406, 0.789456, 0.61186904, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsddo"]
+shader = ExtResource("2_v7bs7")
+shader_parameter/velocity = Vector2(-0.5, -0.5)
+shader_parameter/scale = Vector2(3, 3)
+shader_parameter/color = Color(0.92981416, 0.71102625, 0.47438002, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66wyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t4c3"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x36e1"]
+texture = SubResource("AtlasTexture_7t4c3")
+modulate_color = Color(0.91764706, 0.32941177, 0.33333334, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rxpg"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(0, 1000, 500, 500)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekb2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ckb"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(1050, 550, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gfek"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urqga"]
+texture = SubResource("AtlasTexture_3gfek")
+modulate_color = Color(0.9428273, 0.6231113, 0.29139206, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlgv5"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leik4"]
+atlas = ExtResource("6_7t4c3")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8ue3"]
+atlas = ExtResource("5_fjcmt")
+region = Rect2(0, 500, 500, 500)
+margin = Rect2(100, 100, 200, 200)
+
+[node name="TitleMenu" type="Control" unique_id=20033882]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240646378]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1198819797]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_traub")
+
+[node name="CoolBGEffect" parent="CanvasLayer" unique_id=724042496 instance=ExtResource("1_18ckb")]
+material = SubResource("ShaderMaterial_hsddo")
+
+[node name="ExitButton" type="Button" parent="CanvasLayer" unique_id=1608850623]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+theme = ExtResource("1_7t4c3")
+theme_override_colors/icon_focus_color = Color(0.91764706, 0.32941177, 0.33333334, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_66wyx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x36e1")
+icon = SubResource("AtlasTexture_8rxpg")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_18ckb")
+
+[node name="ConfigButton" type="Button" parent="CanvasLayer" unique_id=476310331]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("1_7t4c3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ekb2d")
+icon = SubResource("AtlasTexture_18ckb")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_7t4c3")
+scene_name = "config_menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=526090777]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -581.0
+offset_right = 500.0
+offset_bottom = 581.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer" unique_id=1221936238]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_8rxpg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=541746273]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1783648259]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ShopButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1590383846]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme = ExtResource("1_7t4c3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_urqga")
+icon = SubResource("AtlasTexture_vlgv5")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_7t4c3")
+scene_name = "shop_menu"
+
+[node name="CollectionButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=40898100]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme = ExtResource("1_7t4c3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_urqga")
+icon = SubResource("AtlasTexture_leik4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_7t4c3")
+scene_name = "collection_menu"
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=766088825]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+theme = ExtResource("5_8rxpg")
+icon = SubResource("AtlasTexture_l8ue3")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_7t4c3")
+scene_name = "game_menu"
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer" unique_id=1318193010]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RainbowButton" type="Button" parent="CanvasLayer" unique_id=704996112]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_7t4c3")
+theme_override_font_sizes/font_size = 125
+text = "?"
+script = ExtResource("10_hsddo")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1074887675]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+offset_right = 387.0
+grow_vertical = 0
+theme = ExtResource("5_8rxpg")
+theme_override_font_sizes/font_size = 25
+text = "Made by PuMo Games"
+
+[connection signal="button_up" from="CanvasLayer/ExitButton" to="CanvasLayer/ExitButton" method="_on_button_up"]
+[connection signal="mouse_entered" from="CanvasLayer/ExitButton" to="CanvasLayer/ExitButton" method="_on_mouse_entered"]
+[connection signal="button_up" from="CanvasLayer/RainbowButton" to="CanvasLayer/RainbowButton" method="_on_button_up"]
